@@ -9,5 +9,11 @@ public class te2 {
         System.out.println("hello git");
         System.out.println("hello git");
         System.out.println("hello git");
+        System.out.println("hello git");
+        System.out.println("hello git");
+        System.out.println("hello git");
+        System.out.println("hello git");
+        System.out.println("hello git");
+        System.out.println("hello git");
     }
 }
