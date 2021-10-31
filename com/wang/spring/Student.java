@@ -27,4 +27,8 @@ public class Student {
     public void setMajor(Major major) {
         this.major = major;
     }
+
+    public static void main(String[] args) {
+        System.out.println("1111111111");
+    }
 }
