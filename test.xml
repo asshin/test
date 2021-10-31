@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--使用set方法设置参数，用的是无参构造器，没有则会报错-->
+<!--    <bean id="book" class="com.wang.spring.book">-->
+<!--        <property name="name" value="zsw"></property>-->
+<!--        <property name="price" value="15"></property>-->
+<!--    </bean>-->
+
+<!--    使用 设置null参数-->
+<!--    <bean id="book" class="com.wang.spring.book">-->
+<!--        <constructor-arg name="name" value="zsw"></constructor-arg>-->
+<!--        <constructor-arg name="price" value="15"></constructor-arg>-->
+<!--        <constructor-arg name="count" >-->
+<!--           <null></null>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+    <!-- 设置属性值为特殊符号-->
+<!--    1.CDATA,2.转义字符-->
+<!--    <bean id="book" class="com.wang.spring.book">-->
+<!--        <constructor-arg name="name" value="zsw"></constructor-arg>-->
+<!--        <constructor-arg name="price" value="15"></constructor-arg>-->
+<!--        <constructor-arg name="count" >-->
+<!--            <value><![CDATA["<><1"]]></value>-->
+<!--            <value>&amp;&amp;</value>-->
+<!--        </constructor-arg>-->
+<!--    </bean>    -->
+
+<!--    注入对象(外部bean)_级联赋值-->
+<!--    <bean id="service" class="com.wang.spring.Service">-->
+<!--        <constructor-arg name="userDAo" ref="userDaoinp"></constructor-arg>-->
+<!--    </bean>-->
+<!--    <bean id="userDaoinp" class="com.wang.spring.userDaoInp">-->
+<!--        <property name="name" value="usedaoimp"></property>-->
+
+<!--    </bean>-->
+<!--        注入对象(内部bean)-->
+    <bean id="student" class="com.wang.spring.Student">
+        <property name="name" value="zsw"></property>
+        <property name="major" >
+            <bean id="major" class="com.wang.spring.Major">
+<!--                <property name="majorName" value="cs"></property>-->
+            </bean>
+        </property>
+<!--        第二种级联要求实现getmajor方法-->
+        <property name="major.majorName" value="is"></property>
+    </bean>
+<!--注入数组、集合、map属性-->
+    <bean id="fruit" class="com.wang.spring.Fruit">
+        <property name="name"  >
+            <array>
+                <value>apple</value>
+                <value>banana</value>
+                <value>orange</value>
+            </array>
+        </property>
+        <property name="price"  >
+            <list>
+                <value>13</value>
+                <value>14</value>
+                <value>15</value>
+
+            </list>
+        </property>
+        <property name="map"  >
+            <map>
+                <entry key="banana" value="13"></entry>
+            </map>
+        </property>
+    </bean>
+
+
+</beans>
